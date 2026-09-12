@@ -1,4 +1,3 @@
-```python
 # Improved Buggy Calculator
 
 import sys
@@ -19,10 +18,16 @@ def divide(a, b):
         print('Error: Division by zero is not allowed. Please choose another operation.')
         sys.exit(1)
 
-num1 = input('Enter first number: ').strip()
-num2 = input('Enter second number: ').strip()
+try:
+    num1 = float(input('Enter first number: ').strip())
+    num2 = float(input('Enter second number: ').strip())
+except ValueError:
+    print('Error: Invalid number input.')
+    sys.exit(1)
+
 operation = input('Choose operation (+, -, *, /): ').strip()
 
+result = None
 if operation == '+':
     result = add(num1, num2)
 elif operation == '-':
@@ -36,4 +41,3 @@ else:
 
 if result is not None:
     print('Result is: ' + str(result))
-```
